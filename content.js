@@ -3,16 +3,14 @@ var tags = document.getElementsByClassName("commit");
 //15 in nouns
 var replace_nouns = ["doodlybop", "merp", "diphthong", "codswallop", 
 "doozy", "collywobbles", "fuddy-duddy", "balderdash", "fiddledeedee",
- "squeegee", "noggin", "hullabaloo", "spelunker", "gobbledygook"];
-	
-//12 in verbs
-var replace_verbs = ["toasting", "bamboozling", "kerplunking", "bedazzling",
-"befuddling", "finagling", "shenaneganizing", "skedaddling", "squelching", 
-"babbling", "dripping", "gurgling"];
+ "squeegee", "noggin", "hullabaloo", "spelunker", "gobbledygook", "toasting", 
+ "bamboozle", "kerplunk", "bedazzle",
+"befuddle", "finagle", "shenaneganize", "skedaddle", "squelch", 
+"babble", "drip", "gurgle"];
 	//document.getElementsById(twitter).innerHTML= "merp";
 	//var merp = messages[0].innerHTML;
 	//console.log(merp);
-	var replacement ="";
+	var replacement =[];
 	var result = "";
 	for (i=0; i<tags.length; i++)
 	{
@@ -24,17 +22,22 @@ var replace_verbs = ["toasting", "bamboozling", "kerplunking", "bedazzling",
 		for (j=0; j<splitString.length; j++)
 		{
 			if(splitString[j] == "shitty" || splitString[j] == "fuck" || splitString[j] == "shit"
-			||	splitString[j] == "shite" || splitString[j] == "fucking")
+			||	splitString[j] == "shite" || splitString[j] == "fucking" || splitString[j] == "shit,")
 			{
-				replacement = splitString.slice(0,j);
-				num = Math.random()*10;
+				//replacement = splitString.slice(0,j);
+				num = Math.random()*25;
 				num = parseInt(num, 10);
 				console.log(num);
 				replacement[j] = replace_nouns[num];
-				j++;
+				//replacement[j] = splitString[j];
+				//j++;
 				//replacement+= splitString.slice(j+1, splitString.length);
 			}
-			replacement[j] = splitString[j];	
+			else
+			{
+				replacement[j] = splitString[j];
+			}
+				
 		}
 
 		for (j=0; j<replacement.length; j++)
