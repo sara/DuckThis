@@ -1,0 +1,13 @@
+{
+	"manifest_version" : 2,
+	"name" : "CLFLN Reboot",
+	"version" : "1",
+	"content_scripts": [
+  {
+    "matches": [
+      "http://www.commitlogsfromlastnight.com/"
+    ],
+    "js": ["content.js"]
+  }
+]
+}
